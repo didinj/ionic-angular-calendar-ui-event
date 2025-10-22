@@ -1,0 +1,25 @@
+<ion-header translucent="true">
+  <ion-toolbar color="primary">
+    <ion-title>{{ viewTitle }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="calendar-container">
+    <calendar
+      [eventSource]="eventSource"
+      [calendarMode]="calendar.mode"
+      [currentDate]="calendar.currentDate"
+      (onEventSelected)="onEventSelected($event)"
+      (onViewTitleChanged)="onViewTitleChanged($any($event))"
+      (onTimeSelected)="onTimeSelected($event)"
+    >
+    </calendar>
+  </div>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button color="success" (click)="addEvent()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

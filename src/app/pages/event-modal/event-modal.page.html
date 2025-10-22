@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Add Event</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="eventForm" (ngSubmit)="saveEvent()">
+    <ion-item>
+      <ion-label position="stacked">Event Title</ion-label>
+      <ion-input
+        formControlName="title"
+        placeholder="Enter event title"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Start Time</ion-label>
+      <ion-datetime
+        presentation="date-time"
+        formControlName="startTime"
+        [min]="minDate"
+      >
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">End Time</ion-label>
+      <ion-datetime
+        presentation="date-time"
+        formControlName="endTime"
+        [min]="minDate"
+      >
+      </ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Description</ion-label>
+      <ion-textarea
+        rows="3"
+        placeholder="Optional event description"
+        formControlName="desc"
+      >
+      </ion-textarea>
+    </ion-item>
+
+    <ion-button
+      expand="block"
+      color="primary"
+      class="ion-margin-top"
+      type="submit"
+      [disabled]="eventForm.invalid"
+    >
+      Save Event
+    </ion-button>
+  </form>
+</ion-content>

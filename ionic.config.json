@@ -1,8 +1,7 @@
 {
-  "name": "mycalendar",
-  "app_id": "",
-  "type": "ionic-angular",
+  "name": "ionic8-calendar",
   "integrations": {
-    "cordova": {}
-  }
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
 }
